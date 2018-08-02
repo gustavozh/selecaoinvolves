@@ -4,7 +4,7 @@ public class Alerta {
 	
 	private String pontoDeVenda;
 	private String descricao;
-	private String produto;
+	private String objetoDeAnalise;
 	private Integer flTipo;
 	private Integer margem;
 	
@@ -20,11 +20,11 @@ public class Alerta {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public String getProduto() {
-		return produto;
+	public String getObjetoDeAnalise() {
+		return objetoDeAnalise;
 	}
-	public void setProduto(String produto) {
-		this.produto = produto;
+	public void setObjetoDeAnalise(String objetoDeAnalise) {
+		this.objetoDeAnalise = objetoDeAnalise;
 	}
 	public Integer getFlTipo() {
 		return flTipo;
