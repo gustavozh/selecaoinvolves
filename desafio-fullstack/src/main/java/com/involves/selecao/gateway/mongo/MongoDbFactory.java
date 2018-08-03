@@ -11,7 +11,7 @@ public class MongoDbFactory {
 	
 	private MongoClient client;
 	
-	public MongoDbFactory() {
+	protected MongoDbFactory() {
 		client = MongoClients.create();
 	}
 	

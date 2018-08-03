@@ -66,4 +66,14 @@ public class Pesquisa {
 	public void setParticipacao_estipulada(String participacao_estipulada) {
 		this.participacao_estipulada = participacao_estipulada;
 	}
+	
+	public PesquisaType getPesquisaType() {
+		if (this.getCategoria() != null) {
+			return PesquisaType.CATEGORIA;
+		}
+		if (this.getProduto() != null) {
+			return PesquisaType.PRODUTO;
+		}
+		return null;
+	}
 }
