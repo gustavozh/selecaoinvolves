@@ -25,7 +25,7 @@ public class AlertaMongoGateway implements AlertaGateway{
 		MongoCollection<Document> collection = database.getCollection("Alertas");
 		Document doc = new Document("ponto_de_venda", alerta.getPontoDeVenda())
                 .append("descricao", alerta.getDescricao())
-                .append("tipo", alerta.getFlTipo())
+                .append("tipo", alerta.getTipo())
                 .append("margem", alerta.getMargem())
                 .append("objeto_de_analise", alerta.getObjetoDeAnalise());
 		collection.insertOne(doc);
@@ -40,7 +40,7 @@ public class AlertaMongoGateway implements AlertaGateway{
 		for (Document document : db) {
 			Alerta alerta = new Alerta();
 			alerta.setDescricao(document.getString("descricao"));
-			alerta.setFlTipo(document.getInteger("tipo"));
+			alerta.setTipo(document.getInteger("tipo"));
 			alerta.setMargem(document.getInteger("margem"));
 			alerta.setPontoDeVenda(document.getString("ponto_de_venda"));
 			alerta.setObjetoDeAnalise(document.getString("objeto_de_analise"));

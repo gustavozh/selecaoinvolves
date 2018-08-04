@@ -1,12 +1,15 @@
 package com.involves.selecao.factory;
 
+import java.util.List;
+
 import com.involves.selecao.alerta.Alerta;
 import com.involves.selecao.alerta.Pesquisa;
+import com.involves.selecao.alerta.PesquisaType;
 
 public class AlertaFactory {
 	
 	private static AlertaFactory instance;
-	private Alerta alerta;
+	private List<Alerta> alertas;
 	
 	private AlertaFactory() {
 		
@@ -19,24 +22,23 @@ public class AlertaFactory {
 		return instance;
 	}
 	
-	public Alerta getAlerta() throws Exception {
-		return alerta;
+	public List<Alerta> getAlertas() {
+		return alertas;
 	}
 	
-	public boolean geraAlerta(Pesquisa pesquisa) throws Exception {
+	public boolean geraAlerta(Pesquisa pesquisa) throws FactoryException {
 		IAlertaCreator alertaCreator;
-		switch(pesquisa.getPesquisaType()) {
-			case CATEGORIA:
-				alertaCreator = new AlertaCategoria(pesquisa);
-				break;
-			case PRODUTO:
-				alertaCreator = new AlertaProduto(pesquisa);
-				break;
-			default:
-				throw new Exception("Pesquisa inválida!"); //TODO Create exception
+		if (pesquisa.getPesquisaType() == null) {
+			throw new FactoryException("Pesquisa inválida! Id:" + pesquisa.getId());
+		} else if (pesquisa.getPesquisaType().equals(PesquisaType.CATEGORIA)) {
+			alertaCreator = new AlertaCategoria(pesquisa);
+		} else if (pesquisa.getPesquisaType().equals(PesquisaType.PRODUTO)) {
+			alertaCreator = new AlertaProduto(pesquisa);
+		} else {
+			throw new FactoryException("Pesquisa inválida! Id:" + pesquisa.getId());
 		}
-		alerta = alertaCreator.getAlerta();
-		return alerta != null;
+		alertas = alertaCreator.getAlertas();
+		return alertas != null && !alertas.isEmpty();
 	}
 
 }

@@ -1,9 +1,11 @@
 package com.involves.selecao.factory;
 
+import java.util.List;
+
 import com.involves.selecao.alerta.Alerta;
 
 public interface IAlertaCreator {
 	
-	Alerta getAlerta();
+	List<Alerta> getAlertas();
 	
 }
