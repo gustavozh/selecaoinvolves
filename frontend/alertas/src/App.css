@@ -1,0 +1,19 @@
+.App-header {
+  background-color: #F55;
+  border: #A55;
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-width: 10px;
+  height: 75px;
+  padding: 0px;
+  color: white;
+  text-align: center;
+}
+
+.App-title {
+  font-size: 2.0em;
+}
+
+.dropdown {
+  padding-right: 5px;
+}
