@@ -26,15 +26,15 @@ public class AlertaFactoryTest {
 	@Before
 	public void setUp() throws Exception {
 		Map<Perguntas, String> questoes = new HashMap<Perguntas, String>();
-		questoes.put(Perguntas.QUAL_PRECO_PRODUTO, "15");
+		questoes.put(Perguntas.QUAL_PRECO_PRODUTO, "50");
 		questoes.put(Perguntas.QUAL_SITUACAO_PRODUTO, Respostas.PRODUTO_AUSENTE.getResposta());
-		pesquisaProduto = CriarPesquisa(1, "Zé", "Esquina", "10", null, "Erva", null, "420", questoes);
+		pesquisaProduto = CriarPesquisa(1, "João", "Angel One Capoeiras", "48", null, "Ovo de Pascoa Kinder 48", null, "Campanha de pascoa", questoes);
 		
 		questoes = new HashMap<Perguntas, String>();
 		questoes.put(Perguntas.SHARE, "30");
-		pesquisaCategoria = CriarPesquisa(1, "Joãozinho", "Ponto", null, "20", null, "Droga", "Vibes", questoes);
+		pesquisaCategoria = CriarPesquisa(1, "Malaquias", "Padaria do Alemão", null, "20", null, "Droga", "Acompanhamento de evolução dos refrigerantes", questoes);
 		
-		pesquisaSemTipo = CriarPesquisa(1, "Billy", "Ponte", null, null, null, null, "High", questoes);
+		pesquisaSemTipo = CriarPesquisa(1, "Paulo", "Padaria do Alemão", null, null, null, null, "Campanha de pascoa", questoes);
 	}
 
 	private Pesquisa CriarPesquisa(int id, String notificante, String pontoDeVenda, String precoEstipulado, 
